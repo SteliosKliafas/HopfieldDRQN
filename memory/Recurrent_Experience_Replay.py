@@ -52,14 +52,14 @@ class Recurrent_Experience_Replay:
             batch = random.sample(self.memory[: -1], batch_size)
 
         for i in batch:
-            obs, act, rew, next_observation, don = zip(*i)
-            obs = np.reshape(obs, (1, self.seq_len, *self.obs_shape))
+            observation, action, reward, next_observation, done = zip(*i)
+            observation = np.reshape(observation, (1, self.seq_len, *self.obs_shape))
             next_observation = np.reshape(next_observation, (1, self.seq_len, *self.obs_shape))
-            batch_observations.append(obs)
-            batch_actions.append(act)
-            batch_reward.append(rew)
+            batch_observations.append(observation)
+            batch_actions.append(action)
+            batch_reward.append(reward)
             batch_next_observations.append(next_observation)
-            batch_dones.append(don)
+            batch_dones.append(done)
         return np.concatenate(batch_observations, 0), batch_actions, batch_reward, np.concatenate(
             batch_next_observations, 0), batch_dones
 

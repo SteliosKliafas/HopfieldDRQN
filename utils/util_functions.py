@@ -67,23 +67,27 @@ def load_from_checkpoint(checkpoint_path, agent):
 
 
 if __name__ == '__main__':
-    hopfield = clean_data('new_hopfield.csv')
-    hopfield_layer = clean_data('hopfieldlayer.csv')
+    # hopfield = clean_data('hopfield.csv')
+    # hopfield_layer = clean_data('hopfield_layer.csv')
     hopfield_pooling = clean_data('pooling.csv')
-    lstm = clean_data('fclstm_cartpole.csv')
-    gru = clean_data('gru_cart.csv')
+    lstm = clean_data('atari_lstm.csv')
+    gru = clean_data('gru.csv')
 
-    d = {"hopfield": hopfield, "hopfield_layer": hopfield_layer, "hopfield_pooling": hopfield_pooling, "lstm": lstm, "gru": gru}
+    # print(max(hopfield_pooling[100:]), max(hopfield[100:]), max(hopfield_layer[100:]), max(lstm[100:]), max(gru[100:]))
+    print(max(hopfield_pooling[100:]), max(lstm[100:]), max(gru[100:]))
+
+    d = {"hopfield_pooling": hopfield_pooling, "lstm": lstm, "gru": gru}
 
     pd = pd.DataFrame(dict([(k, pd.Series(v)) for k, v in d.items()]))
     plt.figure(figsize=(10, 6))
     sns.set(style='darkgrid')
-    sns.lineplot(x=pd.index, y=pd["hopfield"], label="Hopfield", ci=1000, linewidth=1.5)
-    sns.lineplot(x=pd.index, y=pd["hopfield"], label="Hopfield Pooling", ci=1000, linewidth=1.5)
-    sns.lineplot(x=pd.index, y=pd["hopfield_layer"], label="Hopfield Layer", ci=1000, linewidth=1.5)
+    # sns.lineplot(x=pd.index, y=pd["hopfield"], label="Hopfield", ci=1000, linewidth=1.5)
+    sns.lineplot(x=pd.index, y=pd["hopfield_pooling"], label="Hopfield Pooling", ci=1000, linewidth=1.5)
+    # sns.lineplot(x=pd.index, y=pd["hopfield_layer"], label="Hopfield Layer", ci=1000, linewidth=1.5)
     sns.lineplot(x=pd.index, y=pd["lstm"], label="LSTM", ci=1000, linewidth=1.5)
     sns.lineplot(x=pd.index, y=pd["gru"], label="GRU", ci=1000, linewidth=1.5)
-    plt.title("CartPole-v0 MDP", fontsize=20)
+    plt.title("Atari Breakout-v0 MDP", fontsize=20)
+    plt.legend(loc='upper left')
     plt.xlabel("Episodes", fontsize=15)
     plt.ylabel("Average Reward", fontsize=15)
     plt.show()

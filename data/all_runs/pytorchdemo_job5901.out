@@ -1,0 +1,76 @@
++------------------------+----------------------------+--------------------+
+|                        |     Supported Features     |  Program Commands  |
++========================+============================+====================+
+| Compatible Layers      | Hopfield Layer,            | hopfield,          |
+|                        | HopfieldLayer Layer,       | hopfield_layer,    |
+|                        | HopfieldPooling Layer,     | hopfield_pooling,  |
+|                        | LSTM,                      | lstm,              |
+|                        | GRU                        | gru                |
++------------------------+----------------------------+--------------------+
+| Supported Loss Metrics | Huber Loss,                | huber,             |
+|                        | Mean Absolute Error Loss,  | mae,               |
+|                        | Mean Squared Error Loss,   | mse,               |
+|                        | SmoothL1 Loss              | smooth_l1          |
++------------------------+----------------------------+--------------------+
+| Supported Optimizers   | RMSprop (default),         | rmsprop,           |
+|                        | AdamW,                     | adam,              |
+|                        | Adam,                      | adamW,             |
+|                        | SGD                        |  sgd               |
++------------------------+----------------------------+--------------------+
++------------------------------+------------------------------------------+
+|          Parameter           |                  Value                   |
++==============================+==========================================+
+| Layer Type:                  | hopfield_pooling                         |
++------------------------------+------------------------------------------+
+| Loss Metric:                 | mse                                      |
++------------------------------+------------------------------------------+
+| Sequence Length:             | 20                                       |
++------------------------------+------------------------------------------+
+| Learning Rate:               | 0.000                                    |
++------------------------------+------------------------------------------+
+| Target Update Steps:         | 100                                      |
++------------------------------+------------------------------------------+
+| Optimizer:                   | rmsprop                                  |
++------------------------------+------------------------------------------+
+| Weight Decay:                | 0                                        |
++------------------------------+------------------------------------------+
+| Hopfield Inverse Temperature | 0.100                                    |
++------------------------------+------------------------------------------+
+| Scale Q-values with lr       | False                                    |
++------------------------------+------------------------------------------+
+| Hard or Soft Update          | True                                     |
++------------------------------+------------------------------------------+
+| Polyak Factor                | None                                     |
++------------------------------+------------------------------------------+
+| Make POMDP                   | Train: False, Hidden dims: [1], mask     |
+|                              | Evaluation: True, Hidden dims: [1], mask |
++------------------------------+------------------------------------------+
+---------------
+| TRAINING... |
+---------------
+| Episode:   1 | Epsilon:  0.89 | Reward:   0.0 | Average Reward: 0.000 | Steps:   150 | Total Reward:   0.0|
+| Episode:   2 | Epsilon:  0.88 | Reward:   3.0 | Average Reward: 1.500 | Steps:   475 | Total Reward:   3.0|
+| Episode:   3 | Epsilon:  0.87 | Reward:   2.0 | Average Reward: 1.667 | Steps:   730 | Total Reward:   5.0|
+| Episode:   4 | Epsilon:  0.86 | Reward:   0.0 | Average Reward: 1.250 | Steps:   885 | Total Reward:   5.0|
+| Episode:   5 | Epsilon:  0.85 | Reward:   3.0 | Average Reward: 1.600 | Steps:  1206 | Total Reward:   8.0|
+| Episode:   6 | Epsilon:  0.84 | Reward:   2.0 | Average Reward: 1.667 | Steps:  1462 | Total Reward:  10.0|
+| Episode:   7 | Epsilon:  0.83 | Reward:   5.0 | Average Reward: 2.143 | Steps:  1882 | Total Reward:  15.0|
+| Episode:   8 | Epsilon:  0.82 | Reward:   4.0 | Average Reward: 2.375 | Steps:  2263 | Total Reward:  19.0|
+| Episode:   9 | Epsilon:  0.81 | Reward:   5.0 | Average Reward: 2.667 | Steps:  2683 | Total Reward:  24.0|
+| Episode:  10 | Epsilon:  0.80 | Reward:   0.0 | Average Reward: 2.400 | Steps:  2839 | Total Reward:  24.0|
+| Episode:  11 | Epsilon:  0.79 | Reward:   0.0 | Average Reward: 2.182 | Steps:  2993 | Total Reward:  24.0|
+| Episode:  12 | Epsilon:  0.78 | Reward:   0.0 | Average Reward: 2.000 | Steps:  3150 | Total Reward:  24.0|
+| Episode:  13 | Epsilon:  0.77 | Reward:   1.0 | Average Reward: 1.923 | Steps:  3362 | Total Reward:  25.0|
+| Episode:  14 | Epsilon:  0.76 | Reward:   0.0 | Average Reward: 1.786 | Steps:  3515 | Total Reward:  25.0|
+| Episode:  15 | Epsilon:  0.75 | Reward:   3.0 | Average Reward: 1.867 | Steps:  3834 | Total Reward:  28.0|
+| Episode:  16 | Epsilon:  0.74 | Reward:   4.0 | Average Reward: 2.000 | Steps:  4247 | Total Reward:  32.0|
+| Episode:  17 | Epsilon:  0.73 | Reward:   2.0 | Average Reward: 2.000 | Steps:  4506 | Total Reward:  34.0|
+| Episode:  18 | Epsilon:  0.72 | Reward:   2.0 | Average Reward: 2.000 | Steps:  4758 | Total Reward:  36.0|
+| Episode:  19 | Epsilon:  0.71 | Reward:   2.0 | Average Reward: 2.000 | Steps:  5018 | Total Reward:  38.0|
+| Episode:  20 | Epsilon:  0.70 | Reward:   0.0 | Average Reward: 1.900 | Steps:  5178 | Total Reward:  38.0|
+| Episode:  21 | Epsilon:  0.69 | Reward:   0.0 | Average Reward: 1.810 | Steps:  5332 | Total Reward:  38.0|
+| Episode:  22 | Epsilon:  0.69 | Reward:   4.0 | Average Reward: 1.909 | Steps:  5684 | Total Reward:  42.0|
+| Episode:  23 | Epsilon:  0.68 | Reward:   3.0 | Average Reward: 1.957 | Steps:  5994 | Total Reward:  45.0|
+| Episode:  24 | Epsilon:  0.67 | Reward:   2.0 | Average Reward: 1.958 | Steps:  6249 | Total Reward:  47.0|
+| Episode:  25 | Epsilon:  0.66 | Reward:   2.0 | Average Reward: 1.960 | Steps:  6502 | Total Reward:  49.0|
+| Episode:  26 | Epsilon:  0.65 | Reward:   2.0 | Average Reward: 1.962 | Steps:  6747 | Total Reward:  51.0|

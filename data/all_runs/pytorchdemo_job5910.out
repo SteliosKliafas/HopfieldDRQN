@@ -1,0 +1,324 @@
++------------------------+----------------------------+--------------------+
+|                        |     Supported Features     |  Program Commands  |
++========================+============================+====================+
+| Compatible Layers      | Hopfield Layer,            | hopfield,          |
+|                        | HopfieldLayer Layer,       | hopfield_layer,    |
+|                        | HopfieldPooling Layer,     | hopfield_pooling,  |
+|                        | LSTM,                      | lstm,              |
+|                        | GRU                        | gru                |
++------------------------+----------------------------+--------------------+
+| Supported Loss Metrics | Huber Loss,                | huber,             |
+|                        | Mean Absolute Error Loss,  | mae,               |
+|                        | Mean Squared Error Loss,   | mse,               |
+|                        | SmoothL1 Loss              | smooth_l1          |
++------------------------+----------------------------+--------------------+
+| Supported Optimizers   | RMSprop (default),         | rmsprop,           |
+|                        | AdamW,                     | adam,              |
+|                        | Adam,                      | adamW,             |
+|                        | SGD                        |  sgd               |
++------------------------+----------------------------+--------------------+
++------------------------------+------------------------------------------+
+|          Parameter           |                  Value                   |
++==============================+==========================================+
+| Layer Type:                  | hopfield                                 |
++------------------------------+------------------------------------------+
+| Loss Metric:                 | mse                                      |
++------------------------------+------------------------------------------+
+| Sequence Length:             | 20                                       |
++------------------------------+------------------------------------------+
+| Learning Rate:               | 0.000                                    |
++------------------------------+------------------------------------------+
+| Target Update Steps:         | 100                                      |
++------------------------------+------------------------------------------+
+| Optimizer:                   | rmsprop                                  |
++------------------------------+------------------------------------------+
+| Weight Decay:                | 0                                        |
++------------------------------+------------------------------------------+
+| Hopfield Inverse Temperature | 0.100                                    |
++------------------------------+------------------------------------------+
+| Scale Q-values with lr       | False                                    |
++------------------------------+------------------------------------------+
+| Hard or Soft Update          | True                                     |
++------------------------------+------------------------------------------+
+| Polyak Factor                | None                                     |
++------------------------------+------------------------------------------+
+| Make POMDP                   | Train: False, Hidden dims: [1], mask     |
+|                              | Evaluation: True, Hidden dims: [1], mask |
++------------------------------+------------------------------------------+
+---------------
+| TRAINING... |
+---------------
+| Episode:   1 | Epsilon:  0.89 | Reward:   3.0 | Average Reward: 3.000 | Steps:   313 | Total Reward:   3.0|
+| Episode:   2 | Epsilon:  0.88 | Reward:   2.0 | Average Reward: 2.500 | Steps:   596 | Total Reward:   5.0|
+| Episode:   3 | Epsilon:  0.87 | Reward:   2.0 | Average Reward: 2.333 | Steps:   852 | Total Reward:   7.0|
+| Episode:   4 | Epsilon:  0.86 | Reward:   5.0 | Average Reward: 3.000 | Steps:  1289 | Total Reward:  12.0|
+| Episode:   5 | Epsilon:  0.85 | Reward:   5.0 | Average Reward: 3.400 | Steps:  1723 | Total Reward:  17.0|
+| Episode:   6 | Epsilon:  0.84 | Reward:   0.0 | Average Reward: 2.833 | Steps:  1879 | Total Reward:  17.0|
+| Episode:   7 | Epsilon:  0.83 | Reward:   0.0 | Average Reward: 2.429 | Steps:  2032 | Total Reward:  17.0|
+| Episode:   8 | Epsilon:  0.82 | Reward:   2.0 | Average Reward: 2.375 | Steps:  2282 | Total Reward:  19.0|
+| Episode:   9 | Epsilon:  0.81 | Reward:   2.0 | Average Reward: 2.333 | Steps:  2531 | Total Reward:  21.0|
+| Episode:  10 | Epsilon:  0.80 | Reward:   2.0 | Average Reward: 2.300 | Steps:  2785 | Total Reward:  23.0|
+| Episode:  11 | Epsilon:  0.79 | Reward:   0.0 | Average Reward: 2.091 | Steps:  2936 | Total Reward:  23.0|
+| Episode:  12 | Epsilon:  0.78 | Reward:   2.0 | Average Reward: 2.083 | Steps:  3189 | Total Reward:  25.0|
+| Episode:  13 | Epsilon:  0.77 | Reward:   0.0 | Average Reward: 1.923 | Steps:  3344 | Total Reward:  25.0|
+| Episode:  14 | Epsilon:  0.76 | Reward:   0.0 | Average Reward: 1.786 | Steps:  3498 | Total Reward:  25.0|
+| Episode:  15 | Epsilon:  0.75 | Reward:   3.0 | Average Reward: 1.867 | Steps:  3806 | Total Reward:  28.0|
+| Episode:  16 | Epsilon:  0.74 | Reward:   2.0 | Average Reward: 1.875 | Steps:  4063 | Total Reward:  30.0|
+| Episode:  17 | Epsilon:  0.73 | Reward:   2.0 | Average Reward: 1.882 | Steps:  4319 | Total Reward:  32.0|
+| Episode:  18 | Epsilon:  0.72 | Reward:   3.0 | Average Reward: 1.944 | Steps:  4648 | Total Reward:  35.0|
+| Episode:  19 | Epsilon:  0.71 | Reward:   0.0 | Average Reward: 1.842 | Steps:  4808 | Total Reward:  35.0|
+| Episode:  20 | Epsilon:  0.70 | Reward:   4.0 | Average Reward: 1.950 | Steps:  5225 | Total Reward:  39.0|
+| Episode:  21 | Epsilon:  0.69 | Reward:   3.0 | Average Reward: 2.000 | Steps:  5534 | Total Reward:  42.0|
+| Episode:  22 | Epsilon:  0.69 | Reward:   0.0 | Average Reward: 1.909 | Steps:  5688 | Total Reward:  42.0|
+| Episode:  23 | Epsilon:  0.68 | Reward:   0.0 | Average Reward: 1.826 | Steps:  5842 | Total Reward:  42.0|
+| Episode:  24 | Epsilon:  0.67 | Reward:   2.0 | Average Reward: 1.833 | Steps:  6096 | Total Reward:  44.0|
+| Episode:  25 | Epsilon:  0.66 | Reward:   0.0 | Average Reward: 1.760 | Steps:  6244 | Total Reward:  44.0|
+| Episode:  26 | Epsilon:  0.65 | Reward:   2.0 | Average Reward: 1.769 | Steps:  6495 | Total Reward:  46.0|
+| Episode:  27 | Epsilon:  0.65 | Reward:   1.0 | Average Reward: 1.741 | Steps:  6706 | Total Reward:  47.0|
+| Episode:  28 | Epsilon:  0.64 | Reward:   0.0 | Average Reward: 1.679 | Steps:  6858 | Total Reward:  47.0|
+| Episode:  29 | Epsilon:  0.63 | Reward:   0.0 | Average Reward: 1.621 | Steps:  7010 | Total Reward:  47.0|
+| Episode:  30 | Epsilon:  0.62 | Reward:   2.0 | Average Reward: 1.633 | Steps:  7261 | Total Reward:  49.0|
+| Episode:  31 | Epsilon:  0.62 | Reward:   2.0 | Average Reward: 1.645 | Steps:  7517 | Total Reward:  51.0|
+| Episode:  32 | Epsilon:  0.61 | Reward:   3.0 | Average Reward: 1.688 | Steps:  7842 | Total Reward:  54.0|
+| Episode:  33 | Epsilon:  0.60 | Reward:   3.0 | Average Reward: 1.727 | Steps:  8155 | Total Reward:  57.0|
+| Episode:  34 | Epsilon:  0.59 | Reward:   2.0 | Average Reward: 1.735 | Steps:  8446 | Total Reward:  59.0|
+| Episode:  35 | Epsilon:  0.59 | Reward:   0.0 | Average Reward: 1.686 | Steps:  8595 | Total Reward:  59.0|
+| Episode:  36 | Epsilon:  0.58 | Reward:   2.0 | Average Reward: 1.694 | Steps:  8838 | Total Reward:  61.0|
+| Episode:  37 | Epsilon:  0.57 | Reward:   3.0 | Average Reward: 1.730 | Steps:  9165 | Total Reward:  64.0|
+| Episode:  38 | Epsilon:  0.57 | Reward:   0.0 | Average Reward: 1.684 | Steps:  9316 | Total Reward:  64.0|
+| Episode:  39 | Epsilon:  0.56 | Reward:   3.0 | Average Reward: 1.718 | Steps:  9632 | Total Reward:  67.0|
+| Episode:  40 | Epsilon:  0.55 | Reward:   2.0 | Average Reward: 1.725 | Steps:  9886 | Total Reward:  69.0|
+| Episode:  41 | Epsilon:  0.55 | Reward:   3.0 | Average Reward: 1.756 | Steps: 10206 | Total Reward:  72.0|
+| Episode:  42 | Epsilon:  0.54 | Reward:   3.0 | Average Reward: 1.786 | Steps: 10529 | Total Reward:  75.0|
+| Episode:  43 | Epsilon:  0.53 | Reward:   2.0 | Average Reward: 1.791 | Steps: 10779 | Total Reward:  77.0|
+| Episode:  44 | Epsilon:  0.53 | Reward:   3.0 | Average Reward: 1.818 | Steps: 11094 | Total Reward:  80.0|
+| Episode:  45 | Epsilon:  0.52 | Reward:   4.0 | Average Reward: 1.867 | Steps: 11478 | Total Reward:  84.0|
+| Episode:  46 | Epsilon:  0.52 | Reward:   4.0 | Average Reward: 1.913 | Steps: 11858 | Total Reward:  88.0|
+| Episode:  47 | Epsilon:  0.51 | Reward:   2.0 | Average Reward: 1.915 | Steps: 12105 | Total Reward:  90.0|
+| Episode:  48 | Epsilon:  0.50 | Reward:   4.0 | Average Reward: 1.958 | Steps: 12497 | Total Reward:  94.0|
+| Episode:  49 | Epsilon:  0.50 | Reward:   0.0 | Average Reward: 1.918 | Steps: 12657 | Total Reward:  94.0|
+| Episode:  50 | Epsilon:  0.49 | Reward:   2.0 | Average Reward: 1.920 | Steps: 12915 | Total Reward:  96.0|
+| Episode:  51 | Epsilon:  0.49 | Reward:   3.0 | Average Reward: 1.941 | Steps: 13234 | Total Reward:  99.0|
+| Episode:  52 | Epsilon:  0.48 | Reward:   2.0 | Average Reward: 1.942 | Steps: 13483 | Total Reward: 101.0|
+| Episode:  53 | Epsilon:  0.48 | Reward:   2.0 | Average Reward: 1.943 | Steps: 13739 | Total Reward: 103.0|
+| Episode:  54 | Epsilon:  0.47 | Reward:   4.0 | Average Reward: 1.981 | Steps: 14125 | Total Reward: 107.0|
+| Episode:  55 | Epsilon:  0.47 | Reward:   0.0 | Average Reward: 1.945 | Steps: 14276 | Total Reward: 107.0|
+| Episode:  56 | Epsilon:  0.46 | Reward:   0.0 | Average Reward: 1.911 | Steps: 14432 | Total Reward: 107.0|
+| Episode:  57 | Epsilon:  0.46 | Reward:   3.0 | Average Reward: 1.930 | Steps: 14751 | Total Reward: 110.0|
+| Episode:  58 | Epsilon:  0.45 | Reward:   0.0 | Average Reward: 1.897 | Steps: 14904 | Total Reward: 110.0|
+| Episode:  59 | Epsilon:  0.45 | Reward:   3.0 | Average Reward: 1.915 | Steps: 15222 | Total Reward: 113.0|
+| Episode:  60 | Epsilon:  0.44 | Reward:   3.0 | Average Reward: 1.933 | Steps: 15538 | Total Reward: 116.0|
+| Episode:  61 | Epsilon:  0.44 | Reward:   4.0 | Average Reward: 1.967 | Steps: 15932 | Total Reward: 120.0|
+| Episode:  62 | Epsilon:  0.43 | Reward:   3.0 | Average Reward: 1.984 | Steps: 16249 | Total Reward: 123.0|
+| Episode:  63 | Epsilon:  0.43 | Reward:   4.0 | Average Reward: 2.016 | Steps: 16630 | Total Reward: 127.0|
+| Episode:  64 | Epsilon:  0.42 | Reward:   3.0 | Average Reward: 2.031 | Steps: 16948 | Total Reward: 130.0|
+| Episode:  65 | Epsilon:  0.42 | Reward:   2.0 | Average Reward: 2.031 | Steps: 17207 | Total Reward: 132.0|
+| Episode:  66 | Epsilon:  0.41 | Reward:   2.0 | Average Reward: 2.030 | Steps: 17471 | Total Reward: 134.0|
+| Episode:  67 | Epsilon:  0.41 | Reward:   4.0 | Average Reward: 2.060 | Steps: 17861 | Total Reward: 138.0|
+| Episode:  68 | Epsilon:  0.40 | Reward:   0.0 | Average Reward: 2.029 | Steps: 18020 | Total Reward: 138.0|
+| Episode:  69 | Epsilon:  0.40 | Reward:   3.0 | Average Reward: 2.043 | Steps: 18340 | Total Reward: 141.0|
+| Episode:  70 | Epsilon:  0.40 | Reward:   0.0 | Average Reward: 2.014 | Steps: 18491 | Total Reward: 141.0|
+| Episode:  71 | Epsilon:  0.39 | Reward:   3.0 | Average Reward: 2.028 | Steps: 18819 | Total Reward: 144.0|
+| Episode:  72 | Epsilon:  0.39 | Reward:   2.0 | Average Reward: 2.028 | Steps: 19071 | Total Reward: 146.0|
+| Episode:  73 | Epsilon:  0.38 | Reward:   3.0 | Average Reward: 2.041 | Steps: 19383 | Total Reward: 149.0|
+| Episode:  74 | Epsilon:  0.38 | Reward:   2.0 | Average Reward: 2.041 | Steps: 19636 | Total Reward: 151.0|
+| Episode:  75 | Epsilon:  0.37 | Reward:   3.0 | Average Reward: 2.053 | Steps: 19952 | Total Reward: 154.0|
+| Episode:  76 | Epsilon:  0.37 | Reward:   0.0 | Average Reward: 2.026 | Steps: 20103 | Total Reward: 154.0|
+| Episode:  77 | Epsilon:  0.37 | Reward:   0.0 | Average Reward: 2.000 | Steps: 20256 | Total Reward: 154.0|
+| Episode:  78 | Epsilon:  0.36 | Reward:   0.0 | Average Reward: 1.974 | Steps: 20414 | Total Reward: 154.0|
+| Episode:  79 | Epsilon:  0.36 | Reward:   2.0 | Average Reward: 1.975 | Steps: 20662 | Total Reward: 156.0|
+| Episode:  80 | Epsilon:  0.36 | Reward:   3.0 | Average Reward: 1.988 | Steps: 20979 | Total Reward: 159.0|
+| Episode:  81 | Epsilon:  0.35 | Reward:   4.0 | Average Reward: 2.012 | Steps: 21355 | Total Reward: 163.0|
+| Episode:  82 | Epsilon:  0.35 | Reward:   3.0 | Average Reward: 2.024 | Steps: 21675 | Total Reward: 166.0|
+| Episode:  83 | Epsilon:  0.35 | Reward:   2.0 | Average Reward: 2.024 | Steps: 21924 | Total Reward: 168.0|
+| Episode:  84 | Epsilon:  0.34 | Reward:   2.0 | Average Reward: 2.024 | Steps: 22174 | Total Reward: 170.0|
+| Episode:  85 | Epsilon:  0.34 | Reward:   2.0 | Average Reward: 2.024 | Steps: 22425 | Total Reward: 172.0|
+| Episode:  86 | Epsilon:  0.33 | Reward:   2.0 | Average Reward: 2.023 | Steps: 22679 | Total Reward: 174.0|
+| Episode:  87 | Epsilon:  0.33 | Reward:   2.0 | Average Reward: 2.023 | Steps: 22936 | Total Reward: 176.0|
+| Episode:  88 | Epsilon:  0.33 | Reward:   0.0 | Average Reward: 2.000 | Steps: 23086 | Total Reward: 176.0|
+| Episode:  89 | Epsilon:  0.32 | Reward:   3.0 | Average Reward: 2.011 | Steps: 23403 | Total Reward: 179.0|
+| Episode:  90 | Epsilon:  0.32 | Reward:   2.0 | Average Reward: 2.011 | Steps: 23655 | Total Reward: 181.0|
+| Episode:  91 | Epsilon:  0.32 | Reward:   3.0 | Average Reward: 2.022 | Steps: 23997 | Total Reward: 184.0|
+| Episode:  92 | Epsilon:  0.32 | Reward:   2.0 | Average Reward: 2.022 | Steps: 24283 | Total Reward: 186.0|
+| Episode:  93 | Epsilon:  0.31 | Reward:   2.0 | Average Reward: 2.022 | Steps: 24537 | Total Reward: 188.0|
+| Episode:  94 | Epsilon:  0.31 | Reward:   2.0 | Average Reward: 2.021 | Steps: 24791 | Total Reward: 190.0|
+| Episode:  95 | Epsilon:  0.31 | Reward:   3.0 | Average Reward: 2.032 | Steps: 25106 | Total Reward: 193.0|
+| Episode:  96 | Epsilon:  0.30 | Reward:   4.0 | Average Reward: 2.052 | Steps: 25485 | Total Reward: 197.0|
+| Episode:  97 | Epsilon:  0.30 | Reward:   4.0 | Average Reward: 2.072 | Steps: 25893 | Total Reward: 201.0|
+| Episode:  98 | Epsilon:  0.30 | Reward:   3.0 | Average Reward: 2.082 | Steps: 26213 | Total Reward: 204.0|
+| Episode:  99 | Epsilon:  0.30 | Reward:   2.0 | Average Reward: 2.081 | Steps: 26464 | Total Reward: 206.0|
+| Episode: 100 | Epsilon:  0.29 | Reward:   2.0 | Average Reward: 2.080 | Steps: 26725 | Total Reward: 208.0|
+| Episode: 101 | Epsilon:  0.29 | Reward:   3.0 | Average Reward: 2.080 | Steps: 27047 | Total Reward: 211.0|
+| Episode: 102 | Epsilon:  0.29 | Reward:   0.0 | Average Reward: 2.060 | Steps: 27199 | Total Reward: 211.0|
+| Episode: 103 | Epsilon:  0.28 | Reward:   0.0 | Average Reward: 2.040 | Steps: 27348 | Total Reward: 211.0|
+| Episode: 104 | Epsilon:  0.28 | Reward:   2.0 | Average Reward: 2.010 | Steps: 27611 | Total Reward: 213.0|
+| Episode: 105 | Epsilon:  0.28 | Reward:   2.0 | Average Reward: 1.980 | Steps: 27872 | Total Reward: 215.0|
+| Episode: 106 | Epsilon:  0.28 | Reward:   2.0 | Average Reward: 2.000 | Steps: 28129 | Total Reward: 217.0|
+| Episode: 107 | Epsilon:  0.27 | Reward:   0.0 | Average Reward: 2.000 | Steps: 28288 | Total Reward: 217.0|
+| Episode: 108 | Epsilon:  0.27 | Reward:   3.0 | Average Reward: 2.010 | Steps: 28599 | Total Reward: 220.0|
+| Episode: 109 | Epsilon:  0.27 | Reward:   2.0 | Average Reward: 2.010 | Steps: 28857 | Total Reward: 222.0|
+| Episode: 110 | Epsilon:  0.27 | Reward:   2.0 | Average Reward: 2.010 | Steps: 29109 | Total Reward: 224.0|
+| Episode: 111 | Epsilon:  0.26 | Reward:   3.0 | Average Reward: 2.040 | Steps: 29435 | Total Reward: 227.0|
+| Episode: 112 | Epsilon:  0.26 | Reward:   0.0 | Average Reward: 2.020 | Steps: 29588 | Total Reward: 227.0|
+| Episode: 113 | Epsilon:  0.26 | Reward:   2.0 | Average Reward: 2.040 | Steps: 29841 | Total Reward: 229.0|
+| Episode: 114 | Epsilon:  0.26 | Reward:   3.0 | Average Reward: 2.070 | Steps: 30153 | Total Reward: 232.0|
+| Episode: 115 | Epsilon:  0.26 | Reward:   2.0 | Average Reward: 2.060 | Steps: 30407 | Total Reward: 234.0|
+| Episode: 116 | Epsilon:  0.25 | Reward:   2.0 | Average Reward: 2.060 | Steps: 30665 | Total Reward: 236.0|
+| Episode: 117 | Epsilon:  0.25 | Reward:   2.0 | Average Reward: 2.060 | Steps: 30922 | Total Reward: 238.0|
+| Episode: 118 | Epsilon:  0.25 | Reward:   0.0 | Average Reward: 2.030 | Steps: 31080 | Total Reward: 238.0|
+| Episode: 119 | Epsilon:  0.25 | Reward:   2.0 | Average Reward: 2.050 | Steps: 31337 | Total Reward: 240.0|
+| Episode: 120 | Epsilon:  0.24 | Reward:   3.0 | Average Reward: 2.040 | Steps: 31649 | Total Reward: 243.0|
+| Episode: 121 | Epsilon:  0.24 | Reward:   3.0 | Average Reward: 2.040 | Steps: 31963 | Total Reward: 246.0|
+| Episode: 122 | Epsilon:  0.24 | Reward:   0.0 | Average Reward: 2.040 | Steps: 32115 | Total Reward: 246.0|
+| Episode: 123 | Epsilon:  0.24 | Reward:   2.0 | Average Reward: 2.060 | Steps: 32411 | Total Reward: 248.0|
+| Episode: 124 | Epsilon:  0.24 | Reward:   2.0 | Average Reward: 2.060 | Steps: 32669 | Total Reward: 250.0|
+| Episode: 125 | Epsilon:  0.23 | Reward:   2.0 | Average Reward: 2.080 | Steps: 32935 | Total Reward: 252.0|
+| Episode: 126 | Epsilon:  0.23 | Reward:   2.0 | Average Reward: 2.080 | Steps: 33188 | Total Reward: 254.0|
+| Episode: 127 | Epsilon:  0.23 | Reward:   5.0 | Average Reward: 2.120 | Steps: 33646 | Total Reward: 259.0|
+| Episode: 128 | Epsilon:  0.23 | Reward:   3.0 | Average Reward: 2.150 | Steps: 33953 | Total Reward: 262.0|
+| Episode: 129 | Epsilon:  0.23 | Reward:   4.0 | Average Reward: 2.190 | Steps: 34330 | Total Reward: 266.0|
+| Episode: 130 | Epsilon:  0.23 | Reward:   0.0 | Average Reward: 2.170 | Steps: 34482 | Total Reward: 266.0|
+| Episode: 131 | Epsilon:  0.22 | Reward:   2.0 | Average Reward: 2.170 | Steps: 34730 | Total Reward: 268.0|
+| Episode: 132 | Epsilon:  0.22 | Reward:   0.0 | Average Reward: 2.140 | Steps: 34892 | Total Reward: 268.0|
+| Episode: 133 | Epsilon:  0.22 | Reward:   0.0 | Average Reward: 2.110 | Steps: 35047 | Total Reward: 268.0|
+| Episode: 134 | Epsilon:  0.22 | Reward:   2.0 | Average Reward: 2.110 | Steps: 35298 | Total Reward: 270.0|
+| Episode: 135 | Epsilon:  0.22 | Reward:   4.0 | Average Reward: 2.150 | Steps: 35684 | Total Reward: 274.0|
+| Episode: 136 | Epsilon:  0.21 | Reward:   4.0 | Average Reward: 2.170 | Steps: 36074 | Total Reward: 278.0|
+| Episode: 137 | Epsilon:  0.21 | Reward:   0.0 | Average Reward: 2.140 | Steps: 36231 | Total Reward: 278.0|
+| Episode: 138 | Epsilon:  0.21 | Reward:   0.0 | Average Reward: 2.140 | Steps: 36378 | Total Reward: 278.0|
+| Episode: 139 | Epsilon:  0.21 | Reward:   3.0 | Average Reward: 2.140 | Steps: 36695 | Total Reward: 281.0|
+| Episode: 140 | Epsilon:  0.21 | Reward:   3.0 | Average Reward: 2.150 | Steps: 37016 | Total Reward: 284.0|
+| Episode: 141 | Epsilon:  0.21 | Reward:   0.0 | Average Reward: 2.120 | Steps: 37169 | Total Reward: 284.0|
+| Episode: 142 | Epsilon:  0.21 | Reward:   4.0 | Average Reward: 2.130 | Steps: 37550 | Total Reward: 288.0|
+| Episode: 143 | Epsilon:  0.20 | Reward:   0.0 | Average Reward: 2.110 | Steps: 37702 | Total Reward: 288.0|
+| Episode: 144 | Epsilon:  0.20 | Reward:   4.0 | Average Reward: 2.120 | Steps: 38075 | Total Reward: 292.0|
+| Episode: 145 | Epsilon:  0.20 | Reward:   2.0 | Average Reward: 2.100 | Steps: 38327 | Total Reward: 294.0|
+| Episode: 146 | Epsilon:  0.20 | Reward:   4.0 | Average Reward: 2.100 | Steps: 38705 | Total Reward: 298.0|
+| Episode: 147 | Epsilon:  0.20 | Reward:   3.0 | Average Reward: 2.110 | Steps: 39024 | Total Reward: 301.0|
+| Episode: 148 | Epsilon:  0.20 | Reward:   0.0 | Average Reward: 2.070 | Steps: 39193 | Total Reward: 301.0|
+| Episode: 149 | Epsilon:  0.20 | Reward:   2.0 | Average Reward: 2.090 | Steps: 39447 | Total Reward: 303.0|
+| Episode: 150 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.090 | Steps: 39700 | Total Reward: 305.0|
+| Episode: 151 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.080 | Steps: 39952 | Total Reward: 307.0|
+| Episode: 152 | Epsilon:  0.19 | Reward:   4.0 | Average Reward: 2.100 | Steps: 40331 | Total Reward: 311.0|
+| Episode: 153 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.100 | Steps: 40574 | Total Reward: 313.0|
+| Episode: 154 | Epsilon:  0.19 | Reward:   3.0 | Average Reward: 2.090 | Steps: 40908 | Total Reward: 316.0|
+| Episode: 155 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.110 | Steps: 41174 | Total Reward: 318.0|
+| Episode: 156 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.130 | Steps: 41420 | Total Reward: 320.0|
+| Episode: 157 | Epsilon:  0.19 | Reward:   2.0 | Average Reward: 2.120 | Steps: 41685 | Total Reward: 322.0|
+| Episode: 158 | Epsilon:  0.18 | Reward:   2.0 | Average Reward: 2.140 | Steps: 41942 | Total Reward: 324.0|
+| Episode: 159 | Epsilon:  0.18 | Reward:   4.0 | Average Reward: 2.150 | Steps: 42332 | Total Reward: 328.0|
+| Episode: 160 | Epsilon:  0.18 | Reward:   2.0 | Average Reward: 2.140 | Steps: 42587 | Total Reward: 330.0|
+| Episode: 161 | Epsilon:  0.18 | Reward:   0.0 | Average Reward: 2.100 | Steps: 42764 | Total Reward: 330.0|
+| Episode: 162 | Epsilon:  0.18 | Reward:   4.0 | Average Reward: 2.110 | Steps: 43148 | Total Reward: 334.0|
+| Episode: 163 | Epsilon:  0.18 | Reward:   0.0 | Average Reward: 2.070 | Steps: 43300 | Total Reward: 334.0|
+| Episode: 164 | Epsilon:  0.18 | Reward:   2.0 | Average Reward: 2.060 | Steps: 43551 | Total Reward: 336.0|
+| Episode: 165 | Epsilon:  0.18 | Reward:   3.0 | Average Reward: 2.070 | Steps: 43871 | Total Reward: 339.0|
+| Episode: 166 | Epsilon:  0.17 | Reward:   3.0 | Average Reward: 2.080 | Steps: 44189 | Total Reward: 342.0|
+| Episode: 167 | Epsilon:  0.17 | Reward:   2.0 | Average Reward: 2.060 | Steps: 44442 | Total Reward: 344.0|
+| Episode: 168 | Epsilon:  0.17 | Reward:   4.0 | Average Reward: 2.100 | Steps: 44842 | Total Reward: 348.0|
+| Episode: 169 | Epsilon:  0.17 | Reward:   3.0 | Average Reward: 2.100 | Steps: 45169 | Total Reward: 351.0|
+| Episode: 170 | Epsilon:  0.17 | Reward:   2.0 | Average Reward: 2.120 | Steps: 45416 | Total Reward: 353.0|
+| Episode: 171 | Epsilon:  0.17 | Reward:   0.0 | Average Reward: 2.090 | Steps: 45572 | Total Reward: 353.0|
+| Episode: 172 | Epsilon:  0.17 | Reward:   0.0 | Average Reward: 2.070 | Steps: 45728 | Total Reward: 353.0|
+| Episode: 173 | Epsilon:  0.17 | Reward:   3.0 | Average Reward: 2.070 | Steps: 46041 | Total Reward: 356.0|
+| Episode: 174 | Epsilon:  0.17 | Reward:   0.0 | Average Reward: 2.050 | Steps: 46194 | Total Reward: 356.0|
+| Episode: 175 | Epsilon:  0.17 | Reward:   3.0 | Average Reward: 2.050 | Steps: 46514 | Total Reward: 359.0|
+| Episode: 176 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.070 | Steps: 46766 | Total Reward: 361.0|
+| Episode: 177 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.090 | Steps: 47023 | Total Reward: 363.0|
+| Episode: 178 | Epsilon:  0.16 | Reward:   0.0 | Average Reward: 2.090 | Steps: 47198 | Total Reward: 363.0|
+| Episode: 179 | Epsilon:  0.16 | Reward:   3.0 | Average Reward: 2.100 | Steps: 47520 | Total Reward: 366.0|
+| Episode: 180 | Epsilon:  0.16 | Reward:   3.0 | Average Reward: 2.100 | Steps: 47843 | Total Reward: 369.0|
+| Episode: 181 | Epsilon:  0.16 | Reward:   3.0 | Average Reward: 2.090 | Steps: 48200 | Total Reward: 372.0|
+| Episode: 182 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.080 | Steps: 48445 | Total Reward: 374.0|
+| Episode: 183 | Epsilon:  0.16 | Reward:   3.0 | Average Reward: 2.090 | Steps: 48764 | Total Reward: 377.0|
+| Episode: 184 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.090 | Steps: 49022 | Total Reward: 379.0|
+| Episode: 185 | Epsilon:  0.16 | Reward:   0.0 | Average Reward: 2.070 | Steps: 49177 | Total Reward: 379.0|
+| Episode: 186 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.070 | Steps: 49428 | Total Reward: 381.0|
+| Episode: 187 | Epsilon:  0.16 | Reward:   2.0 | Average Reward: 2.070 | Steps: 49678 | Total Reward: 383.0|
+| Episode: 188 | Epsilon:  0.15 | Reward:   2.0 | Average Reward: 2.090 | Steps: 49936 | Total Reward: 385.0|
+| Episode: 189 | Epsilon:  0.15 | Reward:   2.0 | Average Reward: 2.080 | Steps: 50190 | Total Reward: 387.0|
+| Episode: 190 | Epsilon:  0.15 | Reward:   1.0 | Average Reward: 2.070 | Steps: 50379 | Total Reward: 388.0|
+| Episode: 191 | Epsilon:  0.15 | Reward:   0.0 | Average Reward: 2.040 | Steps: 50533 | Total Reward: 388.0|
+| Episode: 192 | Epsilon:  0.15 | Reward:   2.0 | Average Reward: 2.040 | Steps: 50786 | Total Reward: 390.0|
+| Episode: 193 | Epsilon:  0.15 | Reward:   2.0 | Average Reward: 2.040 | Steps: 51012 | Total Reward: 392.0|
+| Episode: 194 | Epsilon:  0.15 | Reward:   0.0 | Average Reward: 2.020 | Steps: 51172 | Total Reward: 392.0|
+| Episode: 195 | Epsilon:  0.15 | Reward:   0.0 | Average Reward: 1.990 | Steps: 51318 | Total Reward: 392.0|
+| Episode: 196 | Epsilon:  0.15 | Reward:   0.0 | Average Reward: 1.950 | Steps: 51474 | Total Reward: 392.0|
+| Episode: 197 | Epsilon:  0.15 | Reward:   1.0 | Average Reward: 1.920 | Steps: 51673 | Total Reward: 393.0|
+| Episode: 198 | Epsilon:  0.15 | Reward:   1.0 | Average Reward: 1.900 | Steps: 51871 | Total Reward: 394.0|
+| Episode: 199 | Epsilon:  0.15 | Reward:   0.0 | Average Reward: 1.880 | Steps: 52024 | Total Reward: 394.0|
+| Episode: 200 | Epsilon:  0.15 | Reward:   2.0 | Average Reward: 1.880 | Steps: 52259 | Total Reward: 396.0|
+| Episode: 201 | Epsilon:  0.15 | Reward:   1.0 | Average Reward: 1.860 | Steps: 52454 | Total Reward: 397.0|
+| Episode: 202 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.860 | Steps: 52608 | Total Reward: 397.0|
+| Episode: 203 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.860 | Steps: 52818 | Total Reward: 397.0|
+| Episode: 204 | Epsilon:  0.14 | Reward:   1.0 | Average Reward: 1.850 | Steps: 53003 | Total Reward: 398.0|
+| Episode: 205 | Epsilon:  0.14 | Reward:   3.0 | Average Reward: 1.860 | Steps: 53275 | Total Reward: 401.0|
+| Episode: 206 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.860 | Steps: 53506 | Total Reward: 403.0|
+| Episode: 207 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.880 | Steps: 53746 | Total Reward: 405.0|
+| Episode: 208 | Epsilon:  0.14 | Reward:   1.0 | Average Reward: 1.860 | Steps: 53939 | Total Reward: 406.0|
+| Episode: 209 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.840 | Steps: 54092 | Total Reward: 406.0|
+| Episode: 210 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.840 | Steps: 54320 | Total Reward: 408.0|
+| Episode: 211 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.810 | Steps: 54473 | Total Reward: 408.0|
+| Episode: 212 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.810 | Steps: 54633 | Total Reward: 408.0|
+| Episode: 213 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.790 | Steps: 54782 | Total Reward: 408.0|
+| Episode: 214 | Epsilon:  0.14 | Reward:   1.0 | Average Reward: 1.770 | Steps: 54976 | Total Reward: 409.0|
+| Episode: 215 | Epsilon:  0.14 | Reward:   0.0 | Average Reward: 1.750 | Steps: 55126 | Total Reward: 409.0|
+| Episode: 216 | Epsilon:  0.14 | Reward:   1.0 | Average Reward: 1.740 | Steps: 55321 | Total Reward: 410.0|
+| Episode: 217 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.740 | Steps: 55557 | Total Reward: 412.0|
+| Episode: 218 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.760 | Steps: 55785 | Total Reward: 414.0|
+| Episode: 219 | Epsilon:  0.14 | Reward:   2.0 | Average Reward: 1.760 | Steps: 56015 | Total Reward: 416.0|
+| Episode: 220 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.740 | Steps: 56209 | Total Reward: 417.0|
+| Episode: 221 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.720 | Steps: 56399 | Total Reward: 418.0|
+| Episode: 222 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.740 | Steps: 56683 | Total Reward: 420.0|
+| Episode: 223 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.740 | Steps: 56924 | Total Reward: 422.0|
+| Episode: 224 | Epsilon:  0.13 | Reward:   0.0 | Average Reward: 1.720 | Steps: 57081 | Total Reward: 422.0|
+| Episode: 225 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.710 | Steps: 57275 | Total Reward: 423.0|
+| Episode: 226 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.710 | Steps: 57506 | Total Reward: 425.0|
+| Episode: 227 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.670 | Steps: 57733 | Total Reward: 426.0|
+| Episode: 228 | Epsilon:  0.13 | Reward:   3.0 | Average Reward: 1.670 | Steps: 58006 | Total Reward: 429.0|
+| Episode: 229 | Epsilon:  0.13 | Reward:   3.0 | Average Reward: 1.660 | Steps: 58278 | Total Reward: 432.0|
+| Episode: 230 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.680 | Steps: 58517 | Total Reward: 434.0|
+| Episode: 231 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.670 | Steps: 58705 | Total Reward: 435.0|
+| Episode: 232 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.680 | Steps: 58902 | Total Reward: 436.0|
+| Episode: 233 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.700 | Steps: 59192 | Total Reward: 438.0|
+| Episode: 234 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.690 | Steps: 59384 | Total Reward: 439.0|
+| Episode: 235 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.670 | Steps: 59616 | Total Reward: 441.0|
+| Episode: 236 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.640 | Steps: 59813 | Total Reward: 442.0|
+| Episode: 237 | Epsilon:  0.13 | Reward:   0.0 | Average Reward: 1.640 | Steps: 59968 | Total Reward: 442.0|
+| Episode: 238 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.660 | Steps: 60203 | Total Reward: 444.0|
+| Episode: 239 | Epsilon:  0.13 | Reward:   2.0 | Average Reward: 1.650 | Steps: 60439 | Total Reward: 446.0|
+| Episode: 240 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.630 | Steps: 60653 | Total Reward: 447.0|
+| Episode: 241 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.640 | Steps: 60838 | Total Reward: 448.0|
+| Episode: 242 | Epsilon:  0.13 | Reward:   1.0 | Average Reward: 1.610 | Steps: 61029 | Total Reward: 449.0|
+| Episode: 243 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.620 | Steps: 61216 | Total Reward: 450.0|
+| Episode: 244 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.590 | Steps: 61409 | Total Reward: 451.0|
+| Episode: 245 | Epsilon:  0.12 | Reward:   3.0 | Average Reward: 1.600 | Steps: 61678 | Total Reward: 454.0|
+| Episode: 246 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.580 | Steps: 61910 | Total Reward: 456.0|
+| Episode: 247 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.560 | Steps: 62107 | Total Reward: 457.0|
+| Episode: 248 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.580 | Steps: 62363 | Total Reward: 459.0|
+| Episode: 249 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.570 | Steps: 62552 | Total Reward: 460.0|
+| Episode: 250 | Epsilon:  0.12 | Reward:   0.0 | Average Reward: 1.550 | Steps: 62704 | Total Reward: 460.0|
+| Episode: 251 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.540 | Steps: 62893 | Total Reward: 461.0|
+| Episode: 252 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.520 | Steps: 63124 | Total Reward: 463.0|
+| Episode: 253 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.520 | Steps: 63362 | Total Reward: 465.0|
+| Episode: 254 | Epsilon:  0.12 | Reward:   0.0 | Average Reward: 1.490 | Steps: 63509 | Total Reward: 465.0|
+| Episode: 255 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.490 | Steps: 63798 | Total Reward: 467.0|
+| Episode: 256 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.480 | Steps: 63994 | Total Reward: 468.0|
+| Episode: 257 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.470 | Steps: 64386 | Total Reward: 469.0|
+| Episode: 258 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.460 | Steps: 64688 | Total Reward: 470.0|
+| Episode: 259 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.430 | Steps: 64882 | Total Reward: 471.0|
+| Episode: 260 | Epsilon:  0.12 | Reward:   3.0 | Average Reward: 1.440 | Steps: 65156 | Total Reward: 474.0|
+| Episode: 261 | Epsilon:  0.12 | Reward:   0.0 | Average Reward: 1.440 | Steps: 65316 | Total Reward: 474.0|
+| Episode: 262 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.420 | Steps: 65551 | Total Reward: 476.0|
+| Episode: 263 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.430 | Steps: 65744 | Total Reward: 477.0|
+| Episode: 264 | Epsilon:  0.12 | Reward:   0.0 | Average Reward: 1.410 | Steps: 65905 | Total Reward: 477.0|
+| Episode: 265 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.390 | Steps: 66104 | Total Reward: 478.0|
+| Episode: 266 | Epsilon:  0.12 | Reward:   3.0 | Average Reward: 1.390 | Steps: 66373 | Total Reward: 481.0|
+| Episode: 267 | Epsilon:  0.12 | Reward:   3.0 | Average Reward: 1.400 | Steps: 66644 | Total Reward: 484.0|
+| Episode: 268 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.370 | Steps: 66828 | Total Reward: 485.0|
+| Episode: 269 | Epsilon:  0.12 | Reward:   3.0 | Average Reward: 1.370 | Steps: 67103 | Total Reward: 488.0|
+| Episode: 270 | Epsilon:  0.12 | Reward:   2.0 | Average Reward: 1.370 | Steps: 67337 | Total Reward: 490.0|
+| Episode: 271 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.380 | Steps: 67534 | Total Reward: 491.0|
+| Episode: 272 | Epsilon:  0.12 | Reward:   0.0 | Average Reward: 1.380 | Steps: 67690 | Total Reward: 491.0|
+| Episode: 273 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.360 | Steps: 67881 | Total Reward: 492.0|
+| Episode: 274 | Epsilon:  0.12 | Reward:   1.0 | Average Reward: 1.370 | Steps: 68071 | Total Reward: 493.0|

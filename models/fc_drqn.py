@@ -78,7 +78,7 @@ class DRQN(nn.Module):
                                             # stored_pattern_as_static=True,
                                             # state_pattern_as_static=True,
                                             # pattern_projection_as_static=True,
-                                            pattern_projection_as_connected=True,
+                                            # pattern_projection_as_connected=True,
                                             normalize_stored_pattern=False,
                                             normalize_stored_pattern_affine=False,
                                             normalize_state_pattern=False,

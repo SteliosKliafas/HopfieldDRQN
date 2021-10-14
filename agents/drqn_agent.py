@@ -1,22 +1,18 @@
 import random
 from typing import List
-
 import numpy as np
 import torch.nn as nn
 import torch.nn.init
 from numpy import ndarray
-
 from memory.Recurrent_Experience_Replay import Recurrent_Experience_Replay
 from models.fc_drqn import DRQN
 from models.cnn_drqn import CNN_DRQN
 from configurations.Config import *
 
-configuration = Configuration()
+configuration = FC_Configuration()
 
 
 class DRQN_Agent:
-    sequence: List[ndarray]
-
     def __init__(self, env, config=configuration):  # test with dictionary
         self.device = config.device
         self.gamma = config.gamma
@@ -68,8 +64,6 @@ class DRQN_Agent:
         self.eval_scores = []
         self.atari_scores = []
         self.eval_atari_scores = []
-        self.current_average_reward = -1e10
-        self.init_sequence()
 
         if self.layer_type not in config.compatible_layers:
             raise TypeError("Layer type is not supported... Please try again.")
@@ -105,7 +99,7 @@ class DRQN_Agent:
                                        bidirectional=self.bidirectional, layer_type=self.layer_type).to(self.device)
 
         self.main_net.apply(self.initialize_weights)
-        self.main_net.load_state_dict(self.target_net.state_dict())
+        self.hard_update()
 
         if self.optimizer_metric == 'adam':
             self.optimizer = torch.optim.Adam(self.main_net.parameters(), lr=self.learning_rate,
@@ -136,29 +130,29 @@ class DRQN_Agent:
             next_q_values, _ = self.target_net.forward(next_observations)
             if self.env_type == 'gym':
                 argmax_actions = self.main_net.forward(next_observations)[0].max(-1)[1].detach()
-                next_q_value = next_q_values.gather(-1, argmax_actions.unsqueeze(-1)).squeeze(-1)
+                target_q_value = next_q_values.gather(-1, argmax_actions.unsqueeze(-1)).squeeze(-1)
                 q_value = q_values.gather(-1, actions.unsqueeze(-1)).squeeze(-1)
             else:
                 one_hot = self.to_one_hot(actions, self.action_space).to(self.device)
                 q_value = torch.amax(q_values * one_hot, 2)
-                next_q_value = torch.amax(next_q_values, 2)
+                target_q_value = torch.amax(next_q_values * one_hot, 2)
         else:
             q_values = self.main_net.forward(observations)
             next_q_values = self.target_net.forward(next_observations)
             if self.env_type == 'gym':
                 argmax_actions = self.main_net.forward(next_observations).max(-1)[1].detach()
-                next_q_value = next_q_values.gather(-1, argmax_actions.unsqueeze(-1)).squeeze(-1)
+                target_q_value = next_q_values.gather(-1, argmax_actions.unsqueeze(-1)).squeeze(-1)
                 q_value = q_values.gather(-1, actions.unsqueeze(-1)).squeeze(-1)
             else:
                 one_hot = self.to_one_hot(actions, self.action_space).to(self.device)
                 q_value = torch.amax(q_values * one_hot, 2)
-                next_q_value = torch.amax(next_q_values, 2)
+                target_q_value = torch.amax(next_q_values * one_hot, 2)
 
         if self.lr_scaled_q_value:
             expected_q_value = q_value + self.learning_rate * (
-                    rewards + self.gamma * (1 - dones) * next_q_value - q_value)
+                    rewards + self.gamma * (1 - dones) * target_q_value - q_value)
         else:
-            expected_q_value = rewards + self.gamma * (1 - dones) * next_q_value
+            expected_q_value = rewards + self.gamma * (1 - dones) * target_q_value
 
         if self.loss_metric == 'huber':
             criterion = nn.HuberLoss(reduction='sum')
@@ -183,9 +177,9 @@ class DRQN_Agent:
 
         if steps % self.target_net_update_steps == 0:
             if self.hard_or_soft_target_update:
-                self.target_net.load_state_dict(self.main_net.state_dict())
+                self.hard_update()
             else:
-                self.polyak_update()
+                self.soft_update()
 
     def act(self, observation, epsilon, hidden=None):
         new_hidden = None
@@ -221,9 +215,9 @@ class DRQN_Agent:
             # torch.nn.init.xavier_uniform_(x.weight)
             x.bias.data.fill_(0.01)
 
-    def polyak_update(self):
+    def soft_update(self):
         for target_param, param in zip(self.target_net.parameters(), self.main_net.parameters()):
             target_param.data.copy_(self.polyak_factor * param.data + target_param.data * (1.0 - self.polyak_factor))
 
-    def init_sequence(self):
-        self.sequence = [np.zeros(self.observation_space[0]) for _ in range(self.sequence_length)]
+    def hard_update(self):
+        self.target_net.load_state_dict(self.main_net.state_dict())

@@ -139,8 +139,6 @@ def train(agent, env, checkpoints_dir, numpy_data, runs):
                         np.mean(agent.scores[-100:]),
                         steps,
                         total_reward), flush=True)
-                agent.init_sequence()
-
                 break
     if agent.output_totxtfile:
         sys.stdout = original_stdout
@@ -242,8 +240,6 @@ def evaluate(agent, env, checkpoints_dir, runs):
                             np.mean(agent.eval_scores[-100:]),
                             steps,
                             total_reward), flush=True)
-                    agent.init_sequence()
-
                     break
 
     if agent.output_totxtfile:
